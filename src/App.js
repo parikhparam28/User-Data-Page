@@ -1,25 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import react from 'react'
+import {Buttons,Card} from './Components/index'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+class App extends react.Component
+{
+  
+  state = {
+    UserId : null,
+  }
+
+  onClickFetchUser = (id) => {
+    this.setState({UserId : id});
+  }
+
+  render () 
+  {
+    return (
+      <div>
+        {this.state.UserId===null ? null : <Card Id={this.state.UserId}/>}
+        <Buttons onClickFetchUser={this.onClickFetchUser} />
+      </div>
+    )
+  }
 }
 
 export default App;
