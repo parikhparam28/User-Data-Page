@@ -27,6 +27,7 @@ const OpenCard = ({Id}) => {
       catch(error){
           return error
       }
+      //eslint-disable-next-line react-hooks/exhaustive-deps
     },[Id])
 
 
